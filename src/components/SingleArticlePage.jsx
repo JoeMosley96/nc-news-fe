@@ -1,13 +1,40 @@
-import {useEffect, useState} from "react"
-import {getArticles} from "../api"
-import ArticleList from "./ArticleList"
-import {useParams} from "react-router-dom"
+import { useEffect, useState } from "react";
+import { getArticles } from "../api";
+import { useParams } from "react-router-dom";
+import FullArticle from "./FullArticle"
 
-const SingleArticlePage = (chosenArticle)=>{
+const SingleArticlePage = () => {
+  const [article, setArticle] = useState({});
+  const [err, setErr] = useState(null);
+  const {article_id} = useParams()
+  console.log(article_id)
+
+  useEffect(() => {
+    getArticles(article_id)
+      .then(({article}) => {
+        console.log(article, "<--data")
+        setErr(null);
+        setArticle(article);
+        return article;
+      })
+      .catch((err) => {
+        setErr(err);
+      });
+  }, [article_id]);
+
+  if (err) {
     return (
-        
-    )
+      <section>
+        <h2>{err.request.status}</h2>
+        <p>{err.message}</p>
+      </section>
+    );
+  }
 
-}
+  if(article){
+    return <FullArticle article = {article}/>
+  }
+    
+};
 
-export default SingleArticlePage
+export default SingleArticlePage;

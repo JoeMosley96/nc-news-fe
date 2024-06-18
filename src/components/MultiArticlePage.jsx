@@ -7,7 +7,8 @@ import {useParams} from "react-router-dom"
 // const params = useParams()
 // console.log(params)
 // const {chosenTopic} = useParams()
-const MultiArticlePage = ()=>{
+const MultiArticlePage = ({setChosenArticleId})=>{
+    console.log(setChosenArticleId)
     return (
         <ArticleList />
     )
