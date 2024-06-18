@@ -1,4 +1,4 @@
-#root{
+#root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -8,34 +8,50 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: stretch;  
+  align-items: stretch;
   /* margin: 10px; */
-  padding: 10px
+  padding: 10px;
 }
 
-.articleList > li{
+.articleList > li {
   list-style-type: none;
   width: 30rem;
 }
 
-.navigation{
+.navigation {
   background-color: rgb(255, 0, 0);
   font-size: 30px;
   align-items: left;
   color: white;
   /* border: 1px solid black; */
   margin: 3px;
-  
-
 }
 
-.articleCard{
+.articleCard {
   /* width: 30rem; */
   /* height: 25rem; */
   margin: 1rem;
 }
 .card-img-top {
-    width: 100%;
-    height: 25rem;
-    object-fit: cover;
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+}
+
+.articleBody {
+  margin: 1rem 10%;
+}
+
+.fullArticleCard {
+  margin: auto;
+  max-width: 75rem;
+}
+
+.commentList {
+  max-width: 75rem;
+  margin: auto;
+  list-style-type: none;
+  align-items: stretch;
+  /* margin: 10px; */
+  padding: 0px;
 }

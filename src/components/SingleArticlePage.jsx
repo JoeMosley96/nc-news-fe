@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import { useParams } from "react-router-dom";
-import FullArticle from "./FullArticle"
+import FullArticleCard from "./FullArticleCard"
+import CommentList from "./CommentList"
 
 const SingleArticlePage = () => {
   const [article, setArticle] = useState({});
@@ -32,8 +33,13 @@ const SingleArticlePage = () => {
   }
 
   if(article){
-    return <FullArticle article = {article}/>
-  }
+    return (
+      <div>
+        <FullArticleCard article = {article}/>
+        <CommentList article_id = {article_id} />
+      </div>
+    
+  )}
     
 };
 
