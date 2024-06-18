@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function Navigation(){
   return(
     <Navbar expand="lg" className="navigation">
-    <Container>
+    <Container className = "navigation">
       <Navbar.Brand className = "text-white" href="#home"><h1>NC News</h1></Navbar.Brand>
       <Navbar.Toggle className = "text-white"aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className = "text-white" id="basic-navbar-nav">

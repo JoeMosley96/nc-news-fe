@@ -2,7 +2,7 @@ import {useEffect, useState} from "react"
 import {getArticles} from "../api"
 import ArticleCard from "./ArticleCard"
 
-function ArticleList(chosenTopic){
+function ArticleList({chosenTopic, setChosenArticleId}){
     const [articles, setArticles] = useState([])
     const [err, setErr] = useState(null)
 
