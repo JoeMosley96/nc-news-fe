@@ -8,11 +8,9 @@ function CommentList({ article_id }) {
 
   useEffect(() => {
     getComments(article_id)
-      .then(({comments}) => {
-        console.log(comments, "<--comments")
+      .then(({ comments }) => {
         setErr(null);
         setComments(comments);
-        console.log(comments, "<--comments")
         return comments;
       })
       .catch((err) => {
@@ -28,14 +26,14 @@ function CommentList({ article_id }) {
       </section>
     );
   }
-  
+
   if (comments.length) {
     return (
       <ol className="commentList">
         <h2> Comments </h2>
         {comments.map((comment) => {
-            console.log(comment)
-          return <CommentCard comment={comment} />;
+          // console.log(comment)
+          return <CommentCard comment={comment} key={comment.comment_id} />;
         })}
       </ol>
     );

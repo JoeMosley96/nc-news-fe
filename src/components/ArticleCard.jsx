@@ -5,8 +5,7 @@ import React from "react";
 import { CardHeader } from "react-bootstrap";
 
 function ArticleCard({ article }) {
-  // console.log(article);
-
+ 
   return (
     <li className="articleCard">
       <Card>

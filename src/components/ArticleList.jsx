@@ -2,7 +2,7 @@ import {useEffect, useState} from "react"
 import {getArticles} from "../api"
 import ArticleCard from "./ArticleCard"
 
-function ArticleList({chosenTopic, setChosenArticleId}){
+function ArticleList({chosenTopic}){
     const [articles, setArticles] = useState([])
     const [err, setErr] = useState(null)
 
@@ -30,9 +30,9 @@ function ArticleList({chosenTopic, setChosenArticleId}){
       if (articles) {
         return (
           <ol className = "articleList">
-            {articles.map((article) => {
+            {articles.map((article,index) => {
               return (
-                  <ArticleCard key={article.article_id} article={article} />
+                  <ArticleCard key={article.article_id}  article={article}/>
               );
             })}
           </ol>
