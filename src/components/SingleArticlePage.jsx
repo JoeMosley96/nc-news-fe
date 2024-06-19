@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import { useParams } from "react-router-dom";
 import FullArticleCard from "./FullArticleCard"
+import Button from "react-bootstrap/Button";
 import CommentList from "./CommentList"
 
 const SingleArticlePage = () => {
   const [article, setArticle] = useState({});
   const [err, setErr] = useState(null);
   const {article_id} = useParams()
-  console.log(article_id)
 
   useEffect(() => {
     getArticles(article_id)
       .then(({article}) => {
-        console.log(article, "<--data")
+
         setErr(null);
         setArticle(article);
         return article;
