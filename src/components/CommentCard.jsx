@@ -4,6 +4,7 @@ import React from "react";
 import { CardHeader } from "react-bootstrap";
 
 function CommentCard({comment}) {
+  // console.log(comment)
 
   return (
     <li className="commentCard">
