@@ -6,7 +6,6 @@ import { patchArticle } from "../api";
 
 function FullArticleCard({ article }) {
   const actualVoteCount = article.votes;
-
   const [displayedVoteCount, setDisplayedVoteCount] = useState(actualVoteCount);
   const [disabledButtonsLogic, setdisabledButtonsLogic] = useState([
     false,
@@ -15,6 +14,7 @@ function FullArticleCard({ article }) {
 
   useEffect(() => {
     setDisplayedVoteCount(actualVoteCount);
+
   }, [actualVoteCount]);
 
   function handleClick(article_id, increment, button_index) {

@@ -37,6 +37,8 @@ function CommentList({ article_id }) {
         })}
       </ol>
     );
+  } else{
+    return <h2>No Comments</h2>
   }
 }
 export default CommentList;

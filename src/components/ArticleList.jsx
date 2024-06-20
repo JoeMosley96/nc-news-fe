@@ -1,43 +1,48 @@
-import {useEffect, useState} from "react"
-import {getArticles} from "../api"
-import ArticleCard from "./ArticleCard"
+import { useEffect, useState } from "react";
+import { getArticles } from "../api";
+import ArticleCard from "./ArticleCard";
 
-function ArticleList({chosenTopic}){
-    const [articles, setArticles] = useState([])
-    const [err, setErr] = useState(null)
+function ArticleList({ chosenTopic }) {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState(null);
 
-    useEffect(()=>{
-        getArticles(chosenTopic)
-        .then(({articles})=>{
-            setErr(null)
-            setArticles(articles)
-            return articles
-        })
-        .catch((err)=>{
-            setErr(err)
-        })
-    }, [chosenTopic])
+  useEffect(() => {
+    setIsLoading(true);
+    getArticles(chosenTopic)
+      .then(({ articles }) => {
+        setErr(null);
+        setIsLoading(false);
+        setArticles(articles);
+        return articles;
+      })
+      .catch((err) => {
+        setErr(err);
+        setIsLoading(false);
+      });
+  }, [chosenTopic]);
 
-    if (err) {
-        return (
-          <section>
-            <h2>{err.request.status}</h2>
-            <p>{err.message}</p>
-          </section>
-        );
-      }
+  if (isLoading) {
+    return <h2>Loading!!!</h2>;
+  }
 
-      if (articles) {
-        return (
-          <ol className = "articleList">
-            {articles.map((article,index) => {
-              return (
-                  <ArticleCard key={article.article_id}  article={article}/>
-              );
-            })}
-          </ol>
-        );
-      }
+  if (err) {
+    return (
+      <section>
+        <h2>{err.request.status}</h2>
+        <p>{err.message}</p>
+      </section>
+    );
+  }
 
-    }
-    export default ArticleList;
+  if (articles) {
+    return (
+      <ol className="articleList">
+        {articles.map((article, index) => {
+          return <ArticleCard key={article.article_id} article={article} />;
+        })}
+      </ol>
+    );
+  }
+}
+export default ArticleList;
