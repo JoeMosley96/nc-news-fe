@@ -61,3 +61,19 @@
   /* margin: 10px; */
   padding: 0px;
 }
+
+.newComment{
+  width: 67rem;
+}
+
+.commentAdder{
+  position: relative;
+  max-width: 75rem
+}
+
+#addCommentButton{
+  position: absolute;
+  height: 3.5rem;
+  width: 4rem
+
+}

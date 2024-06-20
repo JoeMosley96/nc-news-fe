@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../api";
 import CommentCard from "./CommentCard";
+import CommentAdder from "./CommentAdder"
+
 
 function CommentList({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -31,14 +33,22 @@ function CommentList({ article_id }) {
     return (
       <ol className="commentList">
         <h2> Comments </h2>
+        <li><CommentAdder key={`${article_id}commentAdder`} setComments={setComments} article_id={article_id}/></li>
         {comments.map((comment) => {
           // console.log(comment)
           return <CommentCard comment={comment} key={comment.comment_id} />;
         })}
       </ol>
     );
-  } else{
-    return <h2>No Comments</h2>
+  } else {
+    return (
+      <ol>
+        <h2>No Comments</h2>
+        <li key="adder1">
+          <CommentAdder key={`${article_id}commentAdder1`} setComments={setComments}/>
+        </li>
+      </ol>
+    );
   }
 }
 export default CommentList;

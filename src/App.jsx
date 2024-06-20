@@ -6,6 +6,7 @@ import Image from "./components/Image"
 import Navigation from "./components/Navigation"
 import MultiArticlePage from "./components/MultiArticlePage"
 import SingleArticlePage from "./components/SingleArticlePage"
+import UsersPage from "./components/UsersPage"
 import axios from "axios"
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
@@ -22,7 +23,7 @@ function App() {
         <Route path = "/" element = {<MultiArticlePage />} />
         <Route path = "/topics/:chosenTopic" element = {<MultiArticlePage />} />
         <Route path = "/articles/:article_id" element = {<SingleArticlePage />} />
-        {/* <Route path = "/users" element = {<UsersPage />} /> */}
+        <Route path = "/users" element = {<UsersPage />} />
         {/* <Route path = "/*" element = {<ErrorPage />} /> */}
       </Routes>
     </div>
