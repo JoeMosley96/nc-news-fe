@@ -17,12 +17,11 @@ export const getComments = (articleId) => {
   });
 };
 
-export const getUsers = ()=>{
-    return ncNews.get("/users")
-    .then(({data})=>{
-        return data
-    })
-}
+export const getUsers = () => {
+  return ncNews.get("/users").then(({ data }) => {
+    return data;
+  });
+};
 
 export const patchArticle = (articleId, increment) => {
   return ncNews
@@ -35,12 +34,14 @@ export const patchArticle = (articleId, increment) => {
 };
 
 export const postComment = (articleId, commentObj) => {
-  console.log("posting comment");
-  console.log(commentObj)
   return ncNews
-    .post(`/articles/${articleId}/comments`, {comment: commentObj})
+    .post(`/articles/${articleId}/comments`, { comment: commentObj })
     .then(({ data }) => {
       return data;
     });
 };
 
+export const deleteComment = (commentIdToDelete) => {
+  return ncNews
+  .delete(`/comments/${commentIdToDelete}`);
+};
