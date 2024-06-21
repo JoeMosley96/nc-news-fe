@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 
-function ArticleList({ chosenTopic }) {
+function ArticleList({ topicSlug }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(chosenTopic)
+    getArticles(null, topicSlug)
       .then(({ articles }) => {
         setErr(null);
         setIsLoading(false);
@@ -20,7 +20,7 @@ function ArticleList({ chosenTopic }) {
         setErr(err);
         setIsLoading(false);
       });
-  }, [chosenTopic]);
+  }, [topicSlug]);
 
   if (isLoading) {
     return <h2>Loading!!!</h2>;
@@ -38,7 +38,7 @@ function ArticleList({ chosenTopic }) {
   if (articles) {
     return (
       <ol className="articleList">
-        {articles.map((article, index) => {
+        {articles.map((article ) => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}
       </ol>

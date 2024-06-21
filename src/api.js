@@ -2,11 +2,11 @@ import axios from "axios";
 
 const ncNews = axios.create({ baseURL: "https://jm-news.onrender.com/api" });
 
-export const getArticles = (chosenArticleId) => {
+export const getArticles = (chosenArticleId, topicSlug) => {
   const url1 = "/articles";
   const url2 = chosenArticleId ? `/${chosenArticleId}` : "";
 
-  return ncNews.get(url1 + url2).then(({ data }) => {
+  return ncNews.get(url1 + url2, {params: {topic: topicSlug}}).then(({ data }) => {
     return data;
   });
 };
@@ -19,6 +19,12 @@ export const getComments = (articleId) => {
 
 export const getUsers = () => {
   return ncNews.get("/users").then(({ data }) => {
+    return data;
+  });
+};
+
+export const getTopics = () => {
+  return ncNews.get("/topics").then(({ data }) => {
     return data;
   });
 };
