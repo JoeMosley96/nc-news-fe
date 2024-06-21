@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import ArticleList from "./ArticleList";
-import Image from "./Image"
-import { useParams } from "react-router-dom";
+import Image from "./Image";
+import SortBy from "./SortBy"
+import { useSearchParams, useParams } from "react-router-dom";
 
-const MultiArticlePage = ({ topicSlug }) => {
-  const imageDescriptor = topicSlug?topicSlug:"home"
+const MultiArticlePage = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const sort_by = searchParams.get("sort_by")
+  const order = searchParams.get("order")
+
+  const { topic_slug } = useParams();
+  const imageDescriptor = topic_slug ? topic_slug : "home";
   return (
     <ol>
-      <Image imageDescriptor={imageDescriptor}/>
-      <ArticleList topicSlug={topicSlug} />
+      <Image imageDescriptor={imageDescriptor} />
+      <SortBy sort_by = {sort_by}/>
+      <ArticleList topic_slug={topic_slug} sort_by={sort_by} order = {order}/>
     </ol>
   );
 };
