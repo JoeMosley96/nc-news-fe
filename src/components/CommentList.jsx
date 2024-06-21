@@ -35,7 +35,6 @@ function CommentList({ article_id }) {
         <h2> Comments </h2>
         <li><CommentAdder key={`${article_id}commentAdder`} setComments={setComments} article_id={article_id}/></li>
         {comments.map((comment) => {
-          // console.log(comment)
           return <CommentCard comment={comment} key={comment.comment_id} setComments = {setComments}/>;
         })}
       </ol>

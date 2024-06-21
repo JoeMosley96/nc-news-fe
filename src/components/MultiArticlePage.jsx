@@ -3,8 +3,8 @@ import { getArticles } from "../api";
 import ArticleList from "./ArticleList";
 import { useParams } from "react-router-dom";
 
-const MultiArticlePage = ({ setChosenArticleId }) => {
-  return <ArticleList />;
+const MultiArticlePage = ({topicSlug}) => {
+  return <ArticleList topicSlug = {topicSlug} />;
 };
 
 export default MultiArticlePage;
