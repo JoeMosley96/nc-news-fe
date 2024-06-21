@@ -21,6 +21,7 @@ function ArticleCard({ article }) {
         <Card.Img variant="top" src={article.article_img_url} />
         <Card.Body>
         <Card.Text>By {article.author}</Card.Text>
+        <Card.Text> Published on {Date(article.created_at).replace("GMT+0100 (British Summer Time)","")} </Card.Text>
         </Card.Body>
         <CardFooter>
           <Card.Text>{article.comment_count} comments</Card.Text>

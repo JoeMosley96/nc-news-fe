@@ -43,15 +43,7 @@ function App() {
           <Navigation key = "navigation" id = "navigation" className="navigation" topics={topics} />
           <Routes key = "routes">
             <Route key = "home" path="/" element={<MultiArticlePage id = "homepage"/>} />
-            {topics.map((topic) => {
-              return (
-                <Route
-                  key={topic.slug}
-                  path={`/topics/${topic.slug}`}
-                  element={<MultiArticlePage id = {`homepage/${topic.slug}`}topicSlug={topic.slug} />}
-                />
-              );
-            })}
+            <Route key = "articles by topic" path="/topics/:topic_slug" element={<MultiArticlePage/>} />
             <Route key = "singleArticle" path="/articles/:article_id" element={<SingleArticlePage />} />
             <Route key= "users" path="/users" element={<UsersPage />} />
             {/* <Route path = "/*" element = {<ErrorPage />} /> */}
