@@ -10,7 +10,7 @@ function Navigation({ topics }) {
   return (
     <Navbar expand="lg" className="navigation">
       <Container className="navigation">
-        <Navbar.Brand className="text-white" href="#home">
+        <Navbar.Brand className="text-white" href="/">
           <h1>NC News</h1>
         </Navbar.Brand>
         <Navbar.Toggle

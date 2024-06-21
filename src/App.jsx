@@ -41,7 +41,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Navigation key = "navigation" id = "navigation" className="navigation" topics={topics} />
-          <Routes key = "routesssssss">
+          <Routes key = "routes">
             <Route key = "home" path="/" element={<MultiArticlePage id = "homepage"/>} />
             {topics.map((topic) => {
               return (
