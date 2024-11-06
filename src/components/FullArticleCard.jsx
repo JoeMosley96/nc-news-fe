@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import React, { useEffect, useState } from "react";
-import { patchArticle } from "../api";
+import { patchArticle, getUser } from "../api";
 import { CardFooter } from "react-bootstrap";
 
 function FullArticleCard({ article }) {
@@ -15,6 +15,7 @@ function FullArticleCard({ article }) {
 
   useEffect(() => {
     setDisplayedVoteCount(actualVoteCount);
+
 
   }, [actualVoteCount]);
 
@@ -37,13 +38,20 @@ function FullArticleCard({ article }) {
 
     setdisabledButtonsLogic(disabledButtonsLogicCopy);
   }
+  
   return (
     <div className="fullArticleCard">
       <Card>
         <Card.Title>
           <h1>{article.title}</h1>
         </Card.Title>
-        <Card.Subtitle>by {article.author}</Card.Subtitle>
+        <div className="author-username">      
+        <Card.Subtitle>By <a
+        class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+        href = {`/users/${article.author}`}>
+        {article.author}
+          </a></Card.Subtitle>
+        </div>
         <Card.Body>
           <Card.Img src={article.article_img_url} variant="top" />
           <Card.Text className="articleBody">{article.body}</Card.Text>
@@ -55,14 +63,14 @@ function FullArticleCard({ article }) {
             className="btn btn-success"
             disabled={disabledButtonsLogic[0]}
           >
-            Upvote
+            👍
           </Button>
           <Button
             onClick={() => handleClick(article.article_id, -1, 1)}
             className="btn btn-danger"
             disabled={disabledButtonsLogic[1]}
           >
-            Downvote
+            👎
           </Button>
           <p>{displayedVoteCount} votes</p>
           </div>

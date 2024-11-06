@@ -3,15 +3,15 @@ import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 
-function ArticleList({ topic_slug,sort_by,order }) {
+function ArticleList({ topic_slug,sort_by,order, author }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(sort_by)
-    getArticles(null, topic_slug, sort_by, order)
+  
+    getArticles(null, topic_slug, sort_by, order, author)
       .then(({ articles }) => {
         setErr(null);
         setIsLoading(false);
@@ -22,7 +22,7 @@ function ArticleList({ topic_slug,sort_by,order }) {
         setErr(err);
         setIsLoading(false);
       });
-  }, [topic_slug]);
+  }, [topic_slug, author]);
 
   if (isLoading) {
     return <h2>Loading!!!</h2>;

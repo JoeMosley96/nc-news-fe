@@ -16,7 +16,6 @@ const CommentAdder = ({ article_id, setComments }) => {
     
     postComment(article_id, commentObj)
     .then(({comment})=>{
-      console.log(comment,"<-newCommentFromApi")
       setErr(null)
       setNewComment("")
       setComments((currComments)=>{
@@ -29,7 +28,6 @@ const CommentAdder = ({ article_id, setComments }) => {
   };
 
   if (err) {
-    console.log(err)
     return (
       <section>
         <h2>{err.response.status}</h2>

@@ -32,7 +32,7 @@ function CommentList({ article_id }) {
   if (comments.length) {
     return (
       <ol className="commentList">
-        <h2> Comments </h2>
+        <h2 className="sectionHeading"> Comments </h2>
         <li><CommentAdder  key={`${article_id}commentAdder`} setComments={setComments} article_id={article_id}/></li>
         {comments.map((comment) => {
           return <CommentCard comment={comment} key={comment.comment_id} setComments = {setComments}/>;

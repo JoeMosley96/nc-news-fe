@@ -1,19 +1,36 @@
+#addCommentButton {
+  position: absolute;
+  height: 3.5rem;
+  width: 4rem;
+}
+
 #root {
   margin: 0 auto;
   padding: 2rem 2rem;
   text-align: center;
-  background-color: lightgrey
-}
-
-p {
-  margin-top:0;
-  margin-bottom:0
+  background-color: lightgrey;
 }
 
 @media (min-width: 992px) {
   #root {
     padding: 2rem 12rem; /* 12rem padding on the x-axis for larger screens */
   }
+}
+
+@media (max-width: 576px) { 
+  .header-img {
+    height: 15rem; 
+  }
+}
+
+.articleBody {
+  margin: 1rem 10%;
+}
+
+.articleCard{
+    margin-top:0.5rem;
+    margin-bottom: 2.5rem;
+    height: 32rem; 
 }
 
 .articleList {
@@ -24,98 +41,88 @@ p {
   /* margin: 10px; */
   padding: 10px 0px;
   /* max-width: 75rem; */
-  
 }
 
 .articleList > li {
   list-style-type: none;
   width: 30rem;
-  
-  
 }
 
-/* .navigation { */
-  /* background-color: rgb(255, 0, 0);
-  font-size: 30px; */
-  /* align-items: left; */
-  /* color: white; */
-  /* border: 1px solid black; */
-  /* margin: auto;
-  max-width: 75rem; */
-
-/* } */
-
-/* .navbar-nav-sort{
+.articleVotes {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 0;
-  list-style: none;
-  justify-content: flex-start;
-  width: 100%;
-  border: solid black
-} */
-
-/* .basic-nav-dropdown-sort{
-  width: 10rem;
+  justify-content: center;
   align-items: center;
-  border: solid black
-}  */
-
-.articleCard {
-  margin-top: 3rem;
- width: 3rem;
-/* height: 33rem;  */
+  gap: 1rem;
 }
 
-.cardFooter{
+.author-username{
   display: flex;
-  justify-content: space-between
+  justify-content: center;
+  align-items: center
 }
 
-
-.cardFooterText{
-  margin: 0rem
+.avatar-img {
+  width: 50px;       
+  height: 50px;
+  border-radius: 50%; 
+  object-fit: contain;
+  /* border: solid black */
 }
-.header-img {
+
+.card-img{
   width: 100%;
-  height: 20rem;
-  /* height: 25rem; */
+  height: 25rem;
   object-fit:cover;
-  /* max-width: 70em; */
-  padding: 1rem 0rem;
-  
-
 }
-/* Media query for mobile screens */
-@media (max-width: 576px) { 
-  .header-img {
-    height: 15rem; 
-  }
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardFooterText {
+  margin: 0rem;
 }
 
 .card-img-top {
   width: 100%;
   /* height: 25rem; */
-  object-fit:contain;
+  object-fit:cover;
   /* max-width: 75em; */
-
 }
 
-.articleBody {
-  margin: 1rem 10%;
-}
-
-.fullArticleCard {
-  margin: auto;
-  /* max-width: 75rem; */
-}
-
-.articleVotes{
+.commentAdder {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1rem;
+  /* max-width: 75rem */
+  /* border: solid black */
+}
+
+.sectionHeading{
+  margin-top:2rem;
+  margin-bottom:1rem
+
+}
+
+.commentBody {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  /* border: solid black */
+}
+
+.commentBottom {
+  /* border: solid black; */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem
-  
+}
+
+.commentCard {
+  margin-bottom: 1rem;
 }
 
 .commentList {
@@ -127,63 +134,86 @@ p {
   padding: 0px;
 }
 
-
-
-.commentAdder{
+.commentTop {
   display: flex;
   justify-content: space-between;
-  
-  position: relative;
   margin-bottom: 1rem;
-  /* max-width: 75rem */
-  /* border: solid black */
 }
 
-.newComment{
+.commentUsername{
+  display: flex;
+  gap:1rem;
+  align-items: center
+}
+
+.commentVotes {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.deleteButton {
+  max-height: 3rem;
+  margin: auto 0;
+}
+
+.fullArticleCard {
+  margin: auto;
+  /* max-width: 75rem; */
+}
+
+
+
+.header-img {
+  width: 100%;
+  height: 20rem;
+  /* height: 25rem; */
+  object-fit: cover;
+  /* max-width: 70em; */
+  padding: 1rem 0rem;
+}
+
+.newComment {
   /* width: 90%; */
   flex-grow: 1;
   /* border: solid black */
 }
 
-.commentCard{
-  margin-bottom: 1rem
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.commentTop{
-  display:flex;
-  justify-content: space-between;
-  margin-bottom: 1rem
+.profileCard {
+  margin-top: 1rem;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto
 }
 
-.commentBottom{
-  /* border: solid black; */
-  display: flex;
-  justify-content: space-between;
-  align-items:center
-
+@media (max-width: 576px) { 
+  .profileCard {
+    /* height: 22rem;  */
+    width: 100%
+  }
 }
 
-.commentBody{
-  display:flex;
-  flex-direction: column;
-  align-items:start;
-  text-align:left
-  /* border: solid black */
-}
-
-.deleteButton{
-  max-height:3rem;
-  margin: auto 0
-}
-
-.spacing{
+.spacing {
   /* border: solid black; */
   margin: 0rem 1rem;
 }
 
-#addCommentButton{
-  position: absolute;
-  height: 3.5rem;
-  width: 4rem
+.userCard {
+  margin-top:0.5rem;
+  margin-bottom: 2.5rem;
+  /* width: 300rem; */
+  /* height: 32rem;  */
+}
 
+.user-img-top {
+  width: 100%;
+  height: 25rem;
+  object-fit: contain;
+  /* max-width: 75em; */
 }

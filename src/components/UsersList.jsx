@@ -11,7 +11,6 @@ function UsersList() {
     setIsLoading(true);
     getUsers()
       .then(({users}) => {
-        console.log(users)
         setErr(null);
         setIsLoading(false);
         setUsers(users);

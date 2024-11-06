@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import MultiArticlePage from "./components/MultiArticlePage";
 import SingleArticlePage from "./components/SingleArticlePage";
 import UsersPage from "./components/UsersPage";
+import UserPage from "./components/UserPage"
 import { getTopics } from "./api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -46,7 +47,7 @@ function App() {
             <Route key = "articles by topic" path="/topics/:topic_slug" element={<MultiArticlePage/>} />
             <Route key = "singleArticle" path="/articles/:article_id" element={<SingleArticlePage />} />
             <Route key= "users" path="/users" element={<UsersPage />} />
-            {/* <Route path = "/*" element = {<ErrorPage />} /> */}
+            <Route path = "/users/:username*" element = {<UserPage />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -8,8 +8,8 @@ import { convertTimestampToDate } from "../utils/utils";
 function ArticleCard({ article }) {
  
   return (
-    <li className="articleCard">
-      <Card>
+    <li >
+      <Card className="articleCard">
         <CardHeader>
           <Card.Title>
               <a
@@ -19,10 +19,13 @@ function ArticleCard({ article }) {
                 {article.title}
               </a>
           </Card.Title></CardHeader>
-        <Card.Img variant="top" src={article.article_img_url} />
+        <Card.Img className="card-img"variant="top" src={article.article_img_url} />
         <Card.Body>
           <div className="cardFooter">
-        <Card.Text> By {article.author}  </Card.Text>
+        <Card.Text> By <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+        href = {`/users/${article.author}`}>
+          {article.author} 
+          </a> </Card.Text>
         <Card.Text>Published on {convertTimestampToDate(article.created_at)}</Card.Text>
           </div>
         </Card.Body>

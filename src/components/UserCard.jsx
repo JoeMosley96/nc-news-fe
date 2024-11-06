@@ -9,13 +9,19 @@ function UserCard({ user }) {
   return (
     <li className="userCard">
       <Card>
-        <Card.Img variant="top" src={user.avatar_url} />
-        <Card.Body>
-          <Card.Title>
+        <Card.Header>
+        <Card.Title>
+          <a 
+          href={`/users/${user.username}`}
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                 {user.username}
+
+          </a>
           </Card.Title>
-          <Card.Text>{user.name}</Card.Text>
-        </Card.Body>
+        
+        </Card.Header>
+        <Card.Img src={user.avatar_url} className="user-img-top"/>
+       
       </Card>
     </li>
   );
