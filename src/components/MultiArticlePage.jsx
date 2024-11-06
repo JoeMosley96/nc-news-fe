@@ -12,6 +12,8 @@ const MultiArticlePage = () => {
 
   const { topic_slug } = useParams();
   const imageDescriptor = topic_slug ? topic_slug : "home";
+
+  
   return (
     <div>
       <Image imageDescriptor={imageDescriptor} />

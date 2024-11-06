@@ -15,8 +15,6 @@ function FullArticleCard({ article }) {
 
   useEffect(() => {
     setDisplayedVoteCount(actualVoteCount);
-
-
   }, [actualVoteCount]);
 
   function handleClick(article_id, increment, button_index) {
@@ -38,44 +36,45 @@ function FullArticleCard({ article }) {
 
     setdisabledButtonsLogic(disabledButtonsLogicCopy);
   }
-  
+
   return (
     <div className="fullArticleCard">
       <Card>
         <Card.Title>
           <h1>{article.title}</h1>
         </Card.Title>
-        <div className="author-username">      
-        <Card.Subtitle>By <a
-        class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-        href = {`/users/${article.author}`}>
-        {article.author}
-          </a></Card.Subtitle>
+        <div className="author-username">
+          <Card.Subtitle>
+            By{" "}
+            <a
+              class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+              href={`/users/${article.author}`}
+            >
+              {article.author}
+            </a>
+          </Card.Subtitle>
         </div>
         <Card.Body>
           <Card.Img src={article.article_img_url} variant="top" />
           <Card.Text className="articleBody">{article.body}</Card.Text>
           <div className="articleVotes">
-
-          
-          <Button
-            onClick={() => handleClick(article.article_id, 1, 0)}
-            className="btn btn-success"
-            disabled={disabledButtonsLogic[0]}
-          >
-            👍
-          </Button>
-          <Button
-            onClick={() => handleClick(article.article_id, -1, 1)}
-            className="btn btn-danger"
-            disabled={disabledButtonsLogic[1]}
-          >
-            👎
-          </Button>
-          <p>{displayedVoteCount} votes</p>
+            <Button
+              onClick={() => handleClick(article.article_id, 1, 0)}
+              className="btn btn-success"
+              disabled={disabledButtonsLogic[0]}
+            >
+              👍
+            </Button>
+            <Button
+              onClick={() => handleClick(article.article_id, -1, 1)}
+              className="btn btn-danger"
+              disabled={disabledButtonsLogic[1]}
+            >
+              👎
+            </Button>
+            <p>{displayedVoteCount} votes</p>
           </div>
         </Card.Body>
-        
       </Card>
     </div>
   );
