@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import React from "react";
 import { CardFooter, CardHeader } from "react-bootstrap";
+import { convertTimestampToDate } from "../utils/utils";
 
 function ArticleCard({ article }) {
  
@@ -20,10 +21,12 @@ function ArticleCard({ article }) {
           </Card.Title></CardHeader>
         <Card.Img variant="top" src={article.article_img_url} />
         <Card.Body>
-        <Card.Text>By {article.author}</Card.Text>
-        <Card.Text> Published on {Date(article.created_at).replace("GMT+0100 (British Summer Time)","")} </Card.Text>
+          <div className="cardFooter">
+        <Card.Text> By {article.author}  </Card.Text>
+        <Card.Text>Published on {convertTimestampToDate(article.created_at)}</Card.Text>
+          </div>
         </Card.Body>
-        <CardFooter>
+        <CardFooter className="cardFooter">
           <Card.Text>{article.comment_count} comments</Card.Text>
           <Card.Text>{article.votes} votes</Card.Text>
         </CardFooter>

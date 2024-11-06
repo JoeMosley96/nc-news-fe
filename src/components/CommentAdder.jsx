@@ -48,7 +48,7 @@ const CommentAdder = ({ article_id, setComments }) => {
       value={newComment}
       onChange = {(e)=>setNewComment(e.target.value)}>
       </textarea>
-      <button className = "btn btn-primary" id="addCommentButton">Add</button>
+      <button className = "btn btn-primary" >Add</button>
     </form>
   );
 };

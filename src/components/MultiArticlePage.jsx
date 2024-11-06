@@ -13,11 +13,11 @@ const MultiArticlePage = () => {
   const { topic_slug } = useParams();
   const imageDescriptor = topic_slug ? topic_slug : "home";
   return (
-    <ol>
+    <div>
       <Image imageDescriptor={imageDescriptor} />
       <SortBy sort_by = {sort_by}/>
       <ArticleList topic_slug={topic_slug} sort_by={sort_by} order = {order}/>
-    </ol>
+    </div>
   );
 };
 

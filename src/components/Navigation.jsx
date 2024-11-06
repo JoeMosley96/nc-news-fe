@@ -8,26 +8,25 @@ import { useEffect, useState } from "react";
 
 function Navigation({ topics }) {
   return (
-    <Navbar expand="lg" className="navigation">
-      <Container className="navigation">
-        <Navbar.Brand className="text-white" href="/">
-          <h1>NC News</h1>
+    <Navbar expand="lg" bg="danger" variant="dark">
+      <Container >
+        <Navbar.Brand  href="/">
+          <h1>JM News</h1>
         </Navbar.Brand>
         <Navbar.Toggle
-          className="text-white"
           aria-controls="basic-navbar-nav"
         />
-        <Navbar.Collapse className="text-white" id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="text-white" href="/">
+            <Nav.Link href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="text-white" href="/users">
+            <Nav.Link href="/users">
               Users
             </Nav.Link>
             <NavDropdown 
               key= "navDropdown"
-              title={<span className="text-white">Topics</span>}
+              title="Topics"
               id="basic-nav-dropdown"
             >
               {topics.map((topic, index) => {

@@ -19,13 +19,16 @@ function SortBy({sort_by}) {
 //   const [chosenSortBy, setChosenSortBy] = useState()
 
   return (
-    <Navbar expand="lg" className="navigation">
-      <Container className="navigation">
-        <Nav>
+    <Navbar expand="lg" bg="danger" variant="dark" className="text-light justify-content-start">
+      <Container className="me-auto">
+      {/* <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+        /> */}
+       
           <NavDropdown
+          className="spacing"
             key="sortByDropdown"
-            title={<span className="text-white">Sort By</span>}
-            id="basic-nav-dropdown"
+            title="Sort By"
           >
             {sortByQueries.map((sortByQuery, index) => {
               return (
@@ -44,14 +47,16 @@ function SortBy({sort_by}) {
               );
             })}
             </NavDropdown>
+            
           <NavDropdown
-            key="sortByDropdown"
-            title={<span className="text-white">Order</span>}
-            id="basic-nav-dropdown"
+          className="me-auto spacing"
+            key="orderDropdown"
+            title="Order"
           >
-            {orderQueries.map((orderQuery)=>{
+            {orderQueries.map((orderQuery, index)=>{
                 return (
                     <NavDropdown.Item
+                    key={index}
                     href={
                         topic_slug && sort_by
                           ? `/topics/${topic_slug}?sort_by=${sort_by}&order=${orderQuery[1]}`
@@ -69,7 +74,6 @@ function SortBy({sort_by}) {
                 )
             })}
           </NavDropdown>
-        </Nav>
       </Container>
     </Navbar>
   );

@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import React, { useEffect, useState } from "react";
 import { patchArticle } from "../api";
+import { CardFooter } from "react-bootstrap";
 
 function FullArticleCard({ article }) {
   const actualVoteCount = article.votes;
@@ -46,6 +47,9 @@ function FullArticleCard({ article }) {
         <Card.Body>
           <Card.Img src={article.article_img_url} variant="top" />
           <Card.Text className="articleBody">{article.body}</Card.Text>
+          <div className="articleVotes">
+
+          
           <Button
             onClick={() => handleClick(article.article_id, 1, 0)}
             className="btn btn-success"
@@ -60,8 +64,10 @@ function FullArticleCard({ article }) {
           >
             Downvote
           </Button>
-          <Card.Text>{displayedVoteCount} votes</Card.Text>
+          <p>{displayedVoteCount} votes</p>
+          </div>
         </Card.Body>
+        
       </Card>
     </div>
   );
