@@ -9,6 +9,12 @@ This is an example news website using an Express.js API in which users can:
 * Delete comments
 * View user profiles
 
+Tech stack:
+* React
+* React Router
+* Axios
+* Node.js
+
 Back end repo available here https://github.com/JoeMosley96/NC-news  
 
 To run project locally:  
