@@ -3,8 +3,11 @@ Link to deployed version https://jm-news.netlify.app/
 This is an example news website using an Express.js API in which users can: 
 * Browse and interact with a variety of news articles
 * Interact with articles via comments and votes
-* Filter articles by topic and choose the criteria to sort them by
+* Filter articles by topic
+* Sort articles by various criteria
+* Vote on comments
 * Delete comments
+* View user profiles
 
 Back end repo available here https://github.com/JoeMosley96/NC-news  
 
